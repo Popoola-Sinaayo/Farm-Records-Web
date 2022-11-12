@@ -56,6 +56,20 @@
       <p>Add Tractor Information</p>
       <form class="form-class" method="post" action="/tractor-info">
         {% csrf_token %}
+        {% if message %}
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          {{message}}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endif %}
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label label"
             >Farmer Name</label

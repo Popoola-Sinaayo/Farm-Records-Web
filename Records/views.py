@@ -14,9 +14,12 @@ def add_farmer_info(request):
     else:
         name = request.POST["name"]
         farm_name = request.POST["farm_name"]
+        farm = Farmer.objects.filter(name=name)
+        if farm.exists():
+            return render(request, 'index.html', {'message': "Farmer name already exist"})
         farm = Farmer.objects.create(name=name, farm_name=farm_name)
         farm.save()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/tractor-info')
 
 
 def tractor_info(request):
@@ -76,12 +79,13 @@ def tractor_info(request):
             tractor = Tractor.objects.create(name=tractor_name, owner=farmer, harrow=harrow, cultivator=cultivator, rotavator=rotavator,
                                              plough=plough, paddy_trasher=paddy_trasher, dumping_trailer=dumping_trailer, four_wheel_trailer=wheel)
             tractor.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/all-tractors')
         return render(request, 'create-tractor.html', {'message': 'Farmer does not exist'})
 
 
 def tractors(request):
     return render(request, 'tractors.html', {'tractors': Tractor.objects.all()})
+
 
 def tractor_details(request, id):
     tractor = Tractor.objects.filter(id=id)
