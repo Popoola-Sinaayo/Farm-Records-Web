@@ -79,13 +79,13 @@ WSGI_APPLICATION = 'FarmRecords.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
-# DATABASES['default'] = dj_database_url.config(
-#     default='postgres://tkcgqqjqhkonef:2c30f10a274ed5bc5f5ad1240ef33e7ba3f2f1c7440486e7487af05dd618cdf4@ec2-18-215-41-121.compute-1.amazonaws.com:5432/d475s6crua4668')
+DATABASES['default'] = dj_database_url.config(
+    default='postgres://tkcgqqjqhkonef:2c30f10a274ed5bc5f5ad1240ef33e7ba3f2f1c7440486e7487af05dd618cdf4@ec2-18-215-41-121.compute-1.amazonaws.com:5432/d475s6crua4668')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
