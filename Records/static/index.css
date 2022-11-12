@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+}
+
+.top-text {
+  margin-top: 1rem;
+}
+
+.top-nav-text {
+  font-weight: 700 !important;
+  margin-right: 2rem !important;
+}
+
+.form-class {
+  width: 50% !important;
+  margin: auto;
+}
+
+.label {
+  text-align: left !important;
+}
